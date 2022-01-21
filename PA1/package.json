@@ -1,0 +1,16 @@
+{
+  "name": "safe-love-smash-eei0k",
+  "productName": "safe-love-smash-eei0k",
+  "description": "My Electron application description",
+  "keywords": [],
+  "main": "./main.js",
+  "version": "1.0.0",
+  "author": "Soren",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "9.0.2"
+  }
+}

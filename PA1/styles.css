@@ -1,0 +1,8 @@
+.tab{margin-left:40px;}
+body{
+  background-color:grey;
+  border:2px solid black;
+  outline-style:dotted;
+  outline-color:black;
+  color:purple;
+}

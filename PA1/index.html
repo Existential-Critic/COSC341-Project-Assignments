@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>COSC341-PA1</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+  </head>
+  <body>
+    <h1 id="message">Guess A Number Between 1 And 10 (Enter as a digit!)</h1>
+    <input type="text" id="number">
+    <button id="startGame">Try Your Luck!</button>
+    <h1 id="resultMessage"></h1>
+    <h2 id="wins"><p class="tab">Wins: 0</p></h2>
+    <h2 id="losses"><p class="tab">Losses: 0</p></h2>
+    <h2 id="winsRatio"><p class="tab">Wins Ratio: NaN%</p></h2>
+
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+    </script>
+  </body>
+</html>
