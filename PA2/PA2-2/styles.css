@@ -1,0 +1,11 @@
+.opened{
+  display: none;
+}
+.box{
+  width:35%;
+  height:35%;
+}
+.cat{
+  position:absolute;
+  transform:translate(-50%,-50%);
+}

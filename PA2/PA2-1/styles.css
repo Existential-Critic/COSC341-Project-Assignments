@@ -1,0 +1,15 @@
+.art-gallery-section{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:auto;
+    height:350px;
+    border:3px solid black;
+}
+.gallery-button{
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:auto;
+}

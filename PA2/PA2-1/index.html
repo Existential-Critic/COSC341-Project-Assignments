@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>Art Gallery</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+  </head>
+  <body>
+    <h1>Hello Art Gallery!</h1>
+    <div class="art-gallery-section" id="portrait-section">
+      <img class="portrait" id="scream" src="images/scream.jpg" width=200 height=200/>
+      <img class="portrait" id="despair" src="images/despair.jpg" width=200 height=200/>
+      <img class="portrait" id="anxiety" src="images/anxiety.jpg" width=200 height=200/>
+    </div>
+    <div class="gallery-button">
+      <button id="fee">Done Viewing</button>
+    </div>
+    <script src="./renderer.js"></script>
+  </body>
+</html>
