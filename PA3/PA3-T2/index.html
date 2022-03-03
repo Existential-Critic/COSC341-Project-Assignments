@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Static Icon Layout</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+
+  </head>
+  <body>
+    <div id="trueWindow">
+      <div class="centered">
+        <p id="compass">Click This Icon: 
+          <img id="indicator" width=50 height=50>
+        </p>
+      </div>
+      <p id="counter">&nbsp;</p>
+      <div id="buttonCast">
+        <input type="button" id="startBtn" value="Start">
+      </div>
+      <div class="ImageDrawer" id="iconDrawer">
+        <img class="icon" id="i0" src="https://e7.pngegg.com/pngimages/274/317/png-clipart-warhammer-40-000-symbol-of-chaos-chaos-magic-symbol-miscellaneous-leaf.png" width=50 height=50>
+        <img class="icon" id="i1" src="https://static.wikia.nocookie.net/warhammer40k/images/d/d3/Ankh_Triarch.jpg/revision/latest?cb=20120922040712" width=50 height=50>
+        <img class="icon" id="i2" src="https://static.wikia.nocookie.net/warhammer40k/images/0/07/Adeptus_mecanics.jpg/revision/latest?cb=20090912170723" width=50 height=50>
+        <img class="icon" id="i3" src="https://static.wikia.nocookie.net/warhammer40k/images/f/f0/T%27au_Empire_Icon.png/revision/latest?cb=20200730180323" width=50 height=50>
+        <img class="icon" id="i4" src="https://static.wikia.nocookie.net/warhammer40k/images/f/f7/Eldar.png/revision/latest/scale-to-width-down/250?cb=20100601083426" width=50 height=50>
+      </div>
+    </div>
+  </body>
+    <script>
+      require('./renderer.js')
+    </script>
+</html>

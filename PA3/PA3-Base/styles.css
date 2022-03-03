@@ -1,0 +1,38 @@
+.centerer{
+  margin: 20em auto;  
+}
+
+#trueWindow{
+  width:800px;
+  height:600px;
+  margin: 0 auto;  
+}
+
+.centered{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ImageDrawer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 210px;
+}
+
+#counter{
+  width: 100%;
+  text-align: center;
+}
+
+#buttonCast{
+  width: 100%;
+  text-align: center;
+}
+
+.icon{
+  margin: 0em 0.3em;
+}
