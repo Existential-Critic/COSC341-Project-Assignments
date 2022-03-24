@@ -8,7 +8,7 @@ var dataLog = "";
 //This will count how many times we have clicked
 var clicks = 0;
 //This is the maximum number of trials we are going for
-var maxTrials = 6;
+var maxTrials = 18;
 //Create array of volumes we can set to
 var volumeArray = ["Mute",20,40,60,80,100];
 //Reference the pause/play button
@@ -25,16 +25,20 @@ var counterDisplay = document.getElementById("counter");
 var targetVolume = document.getElementById("volume-target");
 //Reference the volume display
 var volumeDisplay = document.getElementById("volume-display");
+//Element that holds all buttons
+var parent = document.getElementById("volume-button-container");
 //Get array of the buttons for adjusting size later
-var button0 = document.getElementById("button-0")
-var button1 = document.getElementById("button-1")
-var button2 = document.getElementById("button-2")
-var button3 = document.getElementById("button-3")
-var button4 = document.getElementById("button-4")
-var button5 = document.getElementById("button-5")
-var buttonsArray = [button0,button1,button2,button3,button4,button5];
+var buttonsArray = parent.children;
 //Variable to control whether music is playing, intialized to false
 var isMusicPlaying = false;
+//Create connector array
+buttonConnector = new Array(buttonsArray.length);
+for(var i=0;i<buttonsArray.length;i++){
+  buttonConnector[i] = {
+    'id':buttonsArray[i].id,'count':0
+  }
+}
+buttonConnector.sort(function(a,b){return b.count-a.count});
 
 //FUNCTIONS
 //Saves data to file
@@ -46,12 +50,12 @@ function save() {
     alert("Congratulations, all tasks are complete");
     });
 }
-//Generates random volume to select
+//Generates random volume to select            
 function randomTarget() {
   //Generate a random number in the appropriate range 
   var volumeIndex = Math.floor(Math.random()*6);
   //Check the count of the random index; if it is too high, get a new index
-  while(volumeCounts[volumeIndex] >= 1){
+  while(volumeCounts[volumeIndex] >= 3){
     volumeIndex = Math.floor(Math.random()*6);
   }
   //Increment the count of the index
@@ -60,23 +64,17 @@ function randomTarget() {
   return volumeIndex;
 }
 //Function to do technique specific stuff
-var techniqueSpecific = function(e) {
-    var userX = e.clientX;
-    var userY = e.clientY;
-    //Get the images' bounding boxes, get dist between box and mouse, and grow the image appropriately
-    for(var i=0;i<buttonsArray.length;i++){
-        imgBoundingBox = buttonsArray[i].getBoundingClientRect();
-        var imgX = imgBoundingBox.left+buttonsArray[i].width/2;
-        var imgY = imgBoundingBox.top+buttonsArray[i].height/2;
-        var a = userX - imgX;
-        var b = userY - imgY;
-        var dist = Math.round(Math.sqrt((a*a)+(b*b)));
-        imgSize = Math.max(50,100-dist)+'px';
-        buttonsArray[i].style.width = imgSize;
-        buttonsArray[i].style.height = imgSize;
+function techniqueSpecific(buttonID) {
+    for(var j=0;j<buttonsArray.length;j++){
+        if(buttonConnector[j].id == buttonID){
+            buttonConnector[j].count++;
+            break;
+        }
     }
+    buttonConnector.sort(function(a,b){return b.count-a.count});
+    buttonConnector.forEach(argIndex=>parent.appendChild(document.getElementById(argIndex.id)));
 }
-//Main click function
+//Main function
 var timedClick = function() {
     //Disables the start button so it can't be clicked twice
     startButton.style.display = "none";
@@ -113,6 +111,7 @@ var timedClick = function() {
             }
             //Figure out which button was clicked on
             var buttonClicked = this.id;
+            techniqueSpecific(buttonClicked);
             //Increment clicks
             clicks++;
             //Log trial data
@@ -132,7 +131,7 @@ var timedClick = function() {
                 save();
                 clicks = 0;
                 dataLog = "";
-                counterDisplay.innerHTML = "There are 6 trials in total";
+                counterDisplay.innerHTML = "There are 18 trials in total";
             }
         }
     }
@@ -155,12 +154,11 @@ playOrPause = function() {
         isMusicPlaying = false;
     }
 }
-//When the window loads
+//Begin when the window loads
 window.onload = function() {
     //Play or pause music
     playPauseButton.onclick = playOrPause;
-    //Load the start button
+    //Setup the start button
     startButton.onclick = timedClick;
     //Setup technique specific callback function here
-    document.onmousemove = techniqueSpecific;
 }
