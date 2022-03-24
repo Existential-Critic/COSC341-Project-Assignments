@@ -33,6 +33,8 @@ var button3 = document.getElementById("button-3")
 var button4 = document.getElementById("button-4")
 var button5 = document.getElementById("button-5")
 var buttonsArray = [button0,button1,button2,button3,button4,button5];
+//Variable to control whether music is playing, intialized to false
+var isMusicPlaying = false;
 
 //FUNCTIONS
 //Saves data to file
@@ -137,16 +139,20 @@ var timedClick = function() {
 }
 //Play or pause music
 playOrPause = function() {
-    if(musicPlayer.muted) {
+    if(!isMusicPlaying) {
         musicPlayer.play();
         playPauseButton.src = "https://people.ok.ubc.ca/bowenhui/341/2020/project/a8assets/pause.png";
-        musicPlayer.muted = false;
-        volumeDisplay.innerHTML = "Current Volume: ".concat(musicPlayer.volume*100);
+        if(musicPlayer.muted) {
+            volumeDisplay.innerHTML = "Music Muted";
+        }else {
+            volumeDisplay.innerHTML = "Current Volume: ".concat(musicPlayer.volume*100);
+        }
+        isMusicPlaying = true;
     }else {
         musicPlayer.pause();
         playPauseButton.src = "https://people.ok.ubc.ca/bowenhui/341/2020/project/a8assets/play.png";
-        musicPlayer.muted = true;
         volumeDisplay.innerHTML = "Music Paused"
+        isMusicPlaying = false;
     }
 }
 //When the window loads
