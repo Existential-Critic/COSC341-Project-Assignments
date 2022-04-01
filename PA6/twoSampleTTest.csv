@@ -1,0 +1,23 @@
+Research Hypothesis,The mean time of Technique 1 is significantly different than the mean time of Technique 2.
+Null Hypothesis,The mean times of Technique 1 and Technique 2 are the same.
+
+Population 1,Trials of Technique 1
+Population 2,Trials of Technique 2
+
+INFORMATION ABOUT THE TEST SAMPLE
+N =,5
+M =,291.404
+
+INFORMATION ABOUT THE POPULATION 2
+u =,0
+S^2 =,31845.473
+
+CHARACTERISTICS OF THE DISTRIBUTION OF MEANS
+uM = u =,0
+S^2M,6369.0946
+SM =,79.807
+df =,4
+cutoff =,-2.776,2.776
+t-score =,3.651
+
+"We can interpret the finding that the mean times of Technique 1 are different than the mean times of Technique 2. With this, we can reject the null hypothesis."

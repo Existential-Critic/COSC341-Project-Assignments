@@ -65,7 +65,7 @@ with open(t1Times,'w+',newline='') as t1TimesFile:
     t1TimesWriter.writerows(t1TimeList)
     t1TimStd = round(stdev(i[0] for i in t1TimeList),4)
     #Add the standard deviation
-    t1TimesWriter.writerow(['Accuracy STD:',t1TimStd])
+    t1TimesWriter.writerow(['Time STD:',t1TimStd])
 
 ##TECHNIQUE 2
 #Access each csv file for T2
@@ -104,4 +104,4 @@ with open(t2Times,'w+',newline='') as t2TimesFile:
     t2TimesWriter.writerows(t2TimeList)
     t2TimStd = round(stdev(i[0] for i in t2TimeList),4)
     #Add the standard deviation
-    t2TimesWriter.writerow(['Accuracy STD:',t2TimStd])
+    t2TimesWriter.writerow(['Time STD:',t2TimStd])
