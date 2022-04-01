@@ -8,7 +8,7 @@ var dataLog = "";
 //This will count how many times we have clicked
 var clicks = 0;
 //This is the maximum number of trials we are going for
-var maxTrials = 18;
+var maxTrials = 60;
 //Create array of volumes we can set to
 var volumeArray = ["Mute",20,40,60,80,100];
 //Reference the pause/play button
@@ -43,7 +43,7 @@ buttonConnector.sort(function(a,b){return b.count-a.count});
 //FUNCTIONS
 //Saves data to file
 function save() {
-    fs.writeFile(path.resolve(fileDir,"JStest.csv"),dataLog, (err)=>{
+    fs.writeFile(path.resolve(fileDir,"ROBIN-T2.csv"),dataLog, (err)=>{
     if(err){
       alert(err);
     }
@@ -55,7 +55,7 @@ function randomTarget() {
   //Generate a random number in the appropriate range 
   var volumeIndex = Math.floor(Math.random()*6);
   //Check the count of the random index; if it is too high, get a new index
-  while(volumeCounts[volumeIndex] >= 3){
+  while(volumeCounts[volumeIndex] >= 10){
     volumeIndex = Math.floor(Math.random()*6);
   }
   //Increment the count of the index
@@ -131,7 +131,13 @@ var timedClick = function() {
                 save();
                 clicks = 0;
                 dataLog = "";
-                counterDisplay.innerHTML = "There are 18 trials in total";
+                counterDisplay.innerHTML = "There are 60 trials in total";
+                for(var i=0;i<buttonsArray.length;i++){
+                  buttonConnector[i] = {
+                    'id':buttonsArray[i].id,'count':0
+                  }
+                }
+                buttonConnector.sort(function(a,b){return b.count-a.count});
             }
         }
     }

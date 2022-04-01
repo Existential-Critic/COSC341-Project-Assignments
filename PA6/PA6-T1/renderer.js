@@ -8,7 +8,7 @@ var dataLog = "";
 //This will count how many times we have clicked
 var clicks = 0;
 //This is the maximum number of trials we are going for
-var maxTrials = 6;
+var maxTrials = 60;
 //Create array of volumes we can set to
 var volumeArray = ["Mute",20,40,60,80,100];
 //Reference the pause/play button
@@ -26,20 +26,15 @@ var targetVolume = document.getElementById("volume-target");
 //Reference the volume display
 var volumeDisplay = document.getElementById("volume-display");
 //Get array of the buttons for adjusting size later
-var button0 = document.getElementById("button-0")
-var button1 = document.getElementById("button-1")
-var button2 = document.getElementById("button-2")
-var button3 = document.getElementById("button-3")
-var button4 = document.getElementById("button-4")
-var button5 = document.getElementById("button-5")
-var buttonsArray = [button0,button1,button2,button3,button4,button5];
+var parent = document.getElementById("volume-bar");
+var buttonsArray = parent.children;
 //Variable to control whether music is playing, intialized to false
 var isMusicPlaying = false;
 
 //FUNCTIONS
 //Saves data to file
 function save() {
-    fs.writeFile(path.resolve(fileDir,"JStest.csv"),dataLog, (err)=>{
+    fs.writeFile(path.resolve(fileDir,"ROBIN-T1.csv"),dataLog, (err)=>{
     if(err){
       alert(err);
     }
@@ -51,7 +46,7 @@ function randomTarget() {
   //Generate a random number in the appropriate range 
   var volumeIndex = Math.floor(Math.random()*6);
   //Check the count of the random index; if it is too high, get a new index
-  while(volumeCounts[volumeIndex] >= 1){
+  while(volumeCounts[volumeIndex] >= 10){
     volumeIndex = Math.floor(Math.random()*6);
   }
   //Increment the count of the index
@@ -132,7 +127,7 @@ var timedClick = function() {
                 save();
                 clicks = 0;
                 dataLog = "";
-                counterDisplay.innerHTML = "There are 6 trials in total";
+                counterDisplay.innerHTML = "There are 60 trials in total";
             }
         }
     }
