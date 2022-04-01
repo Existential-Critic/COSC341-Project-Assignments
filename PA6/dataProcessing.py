@@ -26,3 +26,27 @@ t1AccuracyList = []
 t1TimeList = []
 t2AccuracyList = []
 t2TimeList = []
+
+##TECHNIQUE 1
+#Access each csv file for T1
+for fileName in t1LogFiles:
+    #Open the file to be read
+    with open(fileName,'r') as file:
+        #Initialise needed variables for this file
+        fileTimes = []
+        fileAccuracy = 0
+        csvReader = csv.reader(file)
+        #Iterate through each row of the file
+        for row in csvReader:
+            #Append the times and increment correct answers
+            fileTimes.append(int(row[3]))
+            if(row[1]==row[2]):
+                fileAccuracy +=1
+        #Append the average time and the correct ratio to the global lists
+        t1AccuracyList.append(fileAccuracy/60)
+        averageTime = round(sum(fileTimes)/len(fileTimes),2)
+        t1TimeList.append(averageTime)
+#Write the saved data to the respective T1 csv files
+with open(t1Accuracy,'w+') as t1AccuracyFile:
+    t1AccuracyWriter = csv.writer(t1AccuracyFile)
+    t1AccuracyWriter.writerow(['AVERAGE CORRECT RATIO'])

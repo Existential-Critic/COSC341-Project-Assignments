@@ -43,7 +43,7 @@ buttonConnector.sort(function(a,b){return b.count-a.count});
 //FUNCTIONS
 //Saves data to file
 function save() {
-    fs.writeFile(path.resolve(fileDir,"SARAH-T2.csv"),dataLog, (err)=>{
+    fs.writeFile(path.resolve(fileDir,"ROBIN-T2.csv"),dataLog, (err)=>{
     if(err){
       alert(err);
     }
