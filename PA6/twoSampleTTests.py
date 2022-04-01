@@ -53,6 +53,7 @@ for i in range(5):
     difference = round(t2Times[i]-t1Times[i],2)
     differencesList.append(difference)
 totalDifference = sum(differencesList)
+print(totalDifference)
 #Get the mean difference score
 M = totalDifference/N
 #Get the deviation
