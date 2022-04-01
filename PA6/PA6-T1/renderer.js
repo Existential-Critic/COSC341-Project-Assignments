@@ -34,7 +34,7 @@ var isMusicPlaying = false;
 //FUNCTIONS
 //Saves data to file
 function save() {
-    fs.writeFile(path.resolve(fileDir,"NAME-T1.csv"),dataLog, (err)=>{
+    fs.writeFile(path.resolve(fileDir,"SARAH-T1.csv"),dataLog, (err)=>{
     if(err){
       alert(err);
     }
